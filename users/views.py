@@ -10,7 +10,8 @@ def register(request):
         if form.is_valid():
             form.save()
             username = form.cleaned_data.get('username')
-            messages.success(request, f'Your account has been created! You are now able to log in')
+            ip_address = form.cleaned_data.get('ip_address')
+            messages.success(request, f'Your account has been created! You are now able to log in as'+ip_address)
             return redirect('login')
     else:
         form = UserRegisterForm()
@@ -24,10 +25,12 @@ def profile(request):
         p_form = ProfileUpdateForm(request.POST,
                                    request.FILES,
                                    instance=request.user.profile)
+
         if u_form.is_valid() and p_form.is_valid():
             u_form.save()
             p_form.save()
-            messages.success(request, f'Your account has been updated!')
+            ip_address = u_form.cleaned_data.get('ip_address')
+            messages.success(request, f'Your account has been updated! IP address set to ->'+ip_address)
             return redirect('profile')
 
     else:

@@ -5,7 +5,8 @@
         <form method="POST">
             {% csrf_token %}
             <fieldset class="form-group">
-                <legend class="border-bottom mb-4">Log In</legend>
+                <legend class="border-bottom mb-4">Log into Dragonload Distributed Download Manager</legend>
+                <p> Create an account in the state of the art Download manager designed to boost your download performance  </p>
                 {{ form|crispy }}
             </fieldset>
             <div class="form-group">
@@ -14,7 +15,7 @@
         </form>
         <div class="border-top pt-3">
             <small class="text-muted">
-                Don't have an Account? <a class="ml-2" href="{% url 'register' %}">Sign Up Now</a>
+                New to Dragonload? <a class="ml-2" href="{% url 'register' %}">Sign Up Now</a>
             </small>
 
         </div>

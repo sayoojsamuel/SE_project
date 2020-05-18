@@ -35,8 +35,8 @@ def search(request):
    
 
 
-# def getfile(request):
-#    return serve(request, 'File')
+def getfile(request):
+    return serve(request, 'File')
 
 
 class PostListView(ListView):
@@ -105,3 +105,6 @@ class PostDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
 
 def about(request):
     return render(request, 'blog/about.html', {'title': 'About'})
+
+def howto(request):
+    return render(request, 'blog/howto.html', {'title': 'How To'})
